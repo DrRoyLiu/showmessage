@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>showmessage.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- jquery-2.1.1 is required -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- shoemessage -->
+<link rel="stylesheet" type="text/css"	href="showmessage.css" />
+<script type="text/javascript" src="showmessage.js"></script>
+<script type="text/javascript">
+var msgID;
+function show1(){
+	msgID = ShowMessage.show("the first msg");
+}
+function show1close(){
+	ShowMessage.close(msgID);
+}
+function show2(){
+	ShowMessage.showForTime("the second msg", "fast");
+}
+function show3(){
+	ShowMessage.showConfirm("the third msg");	
+}
+</script>
+</head>
+
+<body>
+<button onclick="show1()">ShowMessage.show</div><br />
+<button onclick="show1close()">ShowMessage.close</div><br />
+<button onclick="show2()">ShowMessage.showForTime</div><br />
+<button onclick="show3()">ShowMessage.showConfirm</div>
+</body>
+</html>
