@@ -1,0 +1,44 @@
+/*
+* css for showmessage
+* @author Roy
+* @since 2016-01-01
+*/
+.warnMsg {
+	max-height: 70%;
+	max-width: 70%;
+	position: absolute;
+	padding: 0 3em;
+	background-color: black;
+	filter: alpha(opacity = 85);
+	-moz-opacity: 0.85;
+	-khtml-opacity: 0.85;
+	opacity: 0.85;
+	overflow: auto;
+}
+
+.warnMsg p{
+	text-align: center;
+	vertical-align: middle;
+	color: white;
+	font: normal 1em/1em Arial, sans-serif;
+}
+
+.msgOkBtn {
+	display: block;
+	margin: 5px auto;
+	cursor: pointer;
+	text-align: center;
+	width: 35px;
+	height: 20px;
+	text-decoration: none;
+	font: bold 0.7em/0.7em Arial, sans-serif;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, .22);
+	color: red;
+	background: -moz-linear-gradient(top, #3B3B3B 0%, #333333 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3B3B3B),
+		color-stop(100%, #333333));
+	background: -webkit-linear-gradient(top, #3B3B3B 0%, #333333 100%);
+	background: -o-linear-gradient(top, #3B3B3B 0%, #333333 100%);
+	background: -ms-linear-gradient(top, #3B3B3B 0%, #333333 100%);
+	background: linear-gradient(top, #3B3B3B 0%, #333333 100%);
+}
