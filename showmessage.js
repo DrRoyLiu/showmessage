@@ -40,8 +40,12 @@ ShowMessage.show = function(value) {
  */
 function setItemInCenter(item) {
 	var htmlWidth, htmlHeight, tmpWidth, tmpHeight;
-	htmlWidth = $("html").outerWidth();
-	htmlHeight = $("html").outerHeight();
+	/*
+	 * use the parent of item, so the message div will not be out of parent's range.
+	 */
+	var parent = $(item).parent();
+	htmlWidth = $(parent).outerWidth();
+	htmlHeight = $(parent).outerHeight();
 	tmpWidth = item.outerWidth();
 	tmpHeight = item.outerHeight();
 	item.css({
