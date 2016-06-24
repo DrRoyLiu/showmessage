@@ -126,3 +126,63 @@ ShowMessage.showConfirm = function(msg) {
 		ShowMessage.close(confirmMsgID);
 	});
 };
+
+
+/**
+ * 显示提示文本，直到被关闭
+ * 
+ * @param msg
+ *            要显示的内容
+ * @author Roy
+ * @since 2016-06-24
+ */
+ShowMessage.showBottom = function(value) {
+	/* 添加元素,ID自增 */
+	var divID = "warnMsg" + messageId++;
+	var warnMsg = "<div id='" + divID + "' class='warnMsgBottom'></div>";
+	if (arguments.length == 1) {
+		$("body").append(warnMsg);
+	} else if (arguments.length == 2) {
+		$(arguments[1]).append(warnMsg);
+	} else {
+		console.logÏ("ShowMessage.show must contains 1 or 2 argument(s)");
+		return null;
+	}
+	$("#" + divID).html("<p>" + arguments[0] + "</p>");
+	return divID;
+};
+/**
+ * 带关闭按钮的底部消息框
+ * 
+ * @param msg
+ *            要显示的内容
+ * @param time
+ *            非零正整数。时间单位ms。可选"slow"/"normal"/"fast"
+ * @author Roy
+ * @since 2016-06-24
+ */
+ShowMessage.showBottomConfirm = function(msg) {
+	var confirmMsgID;
+	if (arguments.length == 1) {
+		confirmMsgID = ShowMessage.showBottom(arguments[0]);
+	} else if (arguments.length == 2) {
+		confirmMsgID = ShowMessage.showBottom(arguments[0], arguments[1]);
+	} else if (arguments.length == 3) {
+		confirmMsgID = arguments[2];
+		if ($("#" + confirmMsgID).length < 1) {
+			var confirmDiv = "<div id='" + confirmMsgID
+					+ "' class='warnMsgBottom'></div>";
+			$(arguments[1]).append(confirmDiv);
+		}
+		$("#" + confirmMsgID).html("<p>" + arguments[0] + "</p>");
+	} else {
+		console.log("ShowMessage.showConfirm must contains 1 to 3 argument(s)");
+		return null;
+	}
+	var button = "<button name='" + confirmMsgID
+			+ "Btn' class='msgBottomOkBtn'>X</button>";
+	$("#" + confirmMsgID).append(button);
+	$("[name='" + confirmMsgID + "Btn']").click(function() {
+		ShowMessage.close(confirmMsgID);
+	});
+};
